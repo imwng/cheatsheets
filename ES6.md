@@ -118,3 +118,110 @@ cat.toString();
 console.log(cat instanceof Cat);  // true
 console.log(cat isntanceof Animal); // true
 ```
+
+## 3. 模块化
+ES5是不支持模块化的，但随着大前端的概念越来越丰富，前端能实现的功能也越来越复杂，前端代码也相应复杂起来，模块化的优势就显现出来了。因此，在ES6种，模块化作为一个重要补充添加进来。
+
+> 模块化的语法组成：
+* export 暴露接口
+* import 引用接口
+
+```
+导出接口:[什么都可以，变量，常量，对象，函数]
+export var name = 'hello world';
+
+引用接口:
+import { name } from '模块文件';
+
+默认导出[default]:
+export default var name = 'hello world';
+
+默认引用:
+import name from '模块文件';
+```
+
+##### ES6模块化的一些特性：
+* 一个文件即一个模块
+* 模块作用域内只有暴露出的接口内容可以被外部访问，其他内容访问不到。
+
+## 4. 箭头函数 [Arrow]
+基础语法格式：() => {}
+
+##### 特性：
+* 没有this关键字，引用的是外围this，等于默认执行了语句：```var self = this;```
+
+## 5. 函数参数支持默认值写法
+```
+ES6写法：
+function foo (height = 50, color = 'red') {
+  // pass
+}
+
+ES6之前：逻辑短路运算实现默认值
+function foo (height, color) {
+  var height = height || 50;
+  var color = color || 'red';
+  // pass
+}
+```
+
+## 6. 模板字符串
+写法简单，比起不停的靠+操作符执行拼接命令，代码会清晰不少。
+```
+var name = `Your name is ${first}${last}`;
+```
+
+## 7. 解构赋值
+ES6支持解构赋值，能为开发带来不少便利。尤其是对ajax返回的数据进行处理时。
+
+1. 快速获取数组中的值
+```
+var foo = ['one', 'two', 'three', 'four'];
+
+var [one, two, three] = foo;
+console.log(one); // one
+console.log(two); // two
+console.log(three); // three
+
+// 如果要忽略某些值的获取
+var [first, , , last] = foo;
+console.log(first); // one
+console.log(last);  // four
+
+// 为解构赋值提供默认值
+var a, b; 
+[a = 5, b = 7] = [1];
+console.log(a); // 1
+console.log(b); // 7
+
+代码等同于 ==> 
+
+var a = 5,
+    b = 7;
+[a, b] = [1];
+```
+
+2. 快速获取对象中的值
+```
+const student = {
+  name:'Ming',
+  age:'18',
+  city:'Shanghai'  
+};
+
+const {name, age, city} = student;
+console.log(name);  // Ming
+console.log(age); // 18
+console.log(city);  // Shanghai
+```
+
+##### 解构赋值的应用技巧：2个值的快速交换
+```
+a, b交换：
+[a, b] = [b, a];
+
+解构赋值之前的2个值交换：
+1. 借助temp中间量
+2. 借助某种数学表达式
+3. 借助数组[原理同temp中间量，还是借助了数组其中一个位置存储临时值]
+```
