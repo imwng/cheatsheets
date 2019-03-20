@@ -15,8 +15,8 @@ ES6本身就属于原生JS的范畴，和jQuery这些三方库是完全不同的
 * 对象属性简写
 * Promise
 
-### 1. let, const 声明变量
-ES6之前的JS标准，是不支持块级作用域的，let, const的产生，就是为了补充这一块。
+## 1. let, const 声明变量
+##### ES6之前的JS标准，是不支持块级作用域的，let, const的产生，就是为了补充这一块。
 > 块级作用域的优势：
 > * 形成独立作用域，避免变量冲突
 > * 利于内存回收，块级作用域执行完毕，内部变量会被销毁。
@@ -47,3 +47,5 @@ console.log(a); // Uncaught ReferenceError: a is not defined
 > let, const 的区别：
 > * const变量的值初始化后，不可以被修改
 > * 如果修改，会引发错误：Uncaught TypeError: Assignment to constant variable.
+
+##### 暂时性死区
