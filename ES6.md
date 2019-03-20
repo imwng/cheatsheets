@@ -59,7 +59,9 @@ let a = 10;
   console.log(a);
   let a = 10;
 }
+
 // 如果不存在let，const变量提升，那么，console.log(a)应该正常输出10
+
 // 事实输出：Uncaught ReferenceError: a is not defined
 ```
 
