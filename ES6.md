@@ -49,3 +49,17 @@ console.log(a); // Uncaught ReferenceError: a is not defined
 > * 如果修改，会引发错误：Uncaught TypeError: Assignment to constant variable.
 
 ##### 暂时性死区
+暂时性死区：指在这个区间内引用变量，会引发错误。
+
+暂时性死区的产生原因：let, const 变量提升，但没有初始化。
+
+```暂时性死区的验证：
+let a = 10;
+{
+  console.log(a);
+  let a = 10;
+}
+// 如果不存在let，const变量提升，那么，console.log(a)应该正常输出10
+// 事实输出：Uncaught ReferenceError: a is not defined
+```
+
