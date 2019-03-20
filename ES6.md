@@ -225,3 +225,27 @@ a, b交换：
 2. 借助某种数学表达式
 3. 借助数组[原理同temp中间量，还是借助了数组其中一个位置存储临时值]
 ```
+
+## 8. 延展操作符 [Spread Operator]
+1. 数组去掉最外层[]，形成一个序列
+2. 对象去掉最外层{}，形成一个序列
+
+## 9. 对象属性简写
+```
+const name='Ming',age='18',city='Shanghai';
+
+const student = {
+    name:name,
+    age:age,
+    city:city
+};
+
+console.log(student); //{name: "Ming", age: "18", city: "Shanghai"}
+
+简写：
+const student = {
+  name,
+  age,
+  city
+}
+```
