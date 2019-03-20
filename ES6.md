@@ -65,3 +65,56 @@ let a = 10;
 // 事实输出：Uncaught ReferenceError: a is not defined
 ```
 
+## 2. 类(class)
+首先，ES6的类，只是一种语法糖，只是为了让基于类的面向对象开发者更熟悉语法，实际上，JS里的面向对象是基于原型的。
+
+面向对象基于类的抽象方式，只是其他语言的一种描述形式，但这不意味着基于类是面向对象的标配。
+
+面向对象编程的3个特性：
+* 抽象与封装
+* 继承
+* 多态
+
+只要满足以上3个特性，就是面向对象的编程方式，至于是基于什么实现的，只是一个描述方式，可以基于类，同样可以基于原型，只要最终能够实现抽象与封装、继承、多态，就属于面向对象编程的方式。
+
+> 面向对象的描述方式：
+> * 基于类(Java, c#等)
+> * 基于原型(JavaScript)
+
+```
+class Animal {
+  // 构造函数
+  constructor (name, color) {
+    this.name = name;
+    this.color = color;
+  }
+  // toString 是原型对象上的属性
+  toString () {
+    console.log(`name:${this.name},color:${this.color}`);
+  }
+}
+
+let animal = new Animal('dog', 'white');
+animal.toString();
+
+console.log(animal.hasOwnProperty('name')); // true
+console.log(animal.hasOwnProperty('toString')); // false
+console.log(animal.__proto__.hasOwnProperty('toString')); // true
+
+class Cat extends Animal {
+  constructor (action) {
+    super('cat', 'white');
+    this.action = action;
+  }
+  
+  toString () {
+    console.log(super.toString());
+  }
+}
+
+let car = new Cat('catch');
+cat.toString();
+
+console.log(cat instanceof Cat);  // true
+console.log(cat isntanceof Animal); // true
+```
